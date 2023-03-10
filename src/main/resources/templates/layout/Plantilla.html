@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header class="main-header" th:fragment="header">
+            <ul class="header-list">
+                <li><i class="fas fa-home"></i>Dashboard</li>
+                <li><i class="fas fa-life-ring"></i>Soporte</li>
+                <li><i class="fas fa-calendar"></i>Calendario</li>
+                <li><i class="fas fa-info-circle tour" onclick="iniciarTour();"></i>Tour</li>
+                <li style="padding-left: 55%" title="Cerrar Sesión" onclick="logOut();"><i class="fas fa-arrow-right"></i></li>
+            </ul>
+        </header>
+        <aside class="aside" th:fragment="aside">
+            <h2 class="aside-title">Usuario Logueado</h2>
+            <br>
+            <ul class="aside-list">
+                <li><i class=""></i>Facturar</li>
+                <li><i class=""></i>Reportes</li>
+                <li><i class=""></i>Servicios</li>
+                <li><i class=""></i>Productos</li>
+                <li><i class=""></i>Clientes</li>
+                <li><i class=""></i>CxC</li>
+                <li><i class=""></i>Descuentos</li>
+                <li><i class=""></i>Aceptar Gastos</li>
+                <li><i class=""></i>Proveedores</li>
+            </ul>
+        </<aside>
+        <footer class="main-footer" th:fragment="footer"></footer>
+    </body>
+</html>

@@ -1,0 +1,200 @@
+/*
+Este es el CSS correcto.
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+@import url('https://unpkg.com/intro.js/minified/introjs.min.css');
+
+.txt{
+    font-family: serif;
+    color: red
+}
+
+
+main-header {
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+}
+
+.modal-fx {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display: block; /* Empieza oculto */
+}
+.modal-login {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    z-index: 1001;
+    width: 326px;
+    height: 362px;
+    border-radius: 20px
+
+}
+
+.title-login{
+    position: absolute;
+    width: 326px;
+    height: 58px;
+    left: 0%;
+    top: 30px;
+
+    font-family:'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 44px;
+    text-align: center;
+
+    color: #000000;
+}
+
+.center-div{
+    margin-top: 40px;
+    margin-left: 35%
+}
+
+/*.aside{
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 15%;
+    bottom: 0;
+    background-color: #4E73DF;
+    color: white;
+}*/
+
+.aside{
+    position: absolute;
+    width: 200px;
+    height: 753px;
+    left: 0px;
+    top: 0%;
+    overflow: hidden;
+    background: #4E73DF;
+    
+}
+
+.text{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.main-header{
+    position: absolute;
+    width: 87%;
+    height: 55px;
+    left: 200px;
+    top: 0px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main-footer{
+    position: fixed;
+    width: 87%;
+    height: 49px;
+    left: 200px;
+    
+    bottom: 0px;
+    background: #F4F4F4;
+}
+
+.header-text{
+    position: absolute;
+    width: 64px;
+    height: 18px;
+    left: 163px;
+    top: 14px;
+
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.header-list {
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header-list li i {
+  margin-right: 8px;
+}
+
+.header-list li {
+  font-size: 18px;
+  margin: 0 10px;
+  padding-left: 20px;
+  color: #B0B0B0;
+  cursor: pointer;
+}
+
+.header-list li:hover {
+  color: #000;
+}
+
+.aside-title{
+    position: absolute;
+    right: 0px;
+    left: 0px;
+    top: 60px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.aside-list {
+    list-style: none;
+    display: table-cell;
+    justify-content: flex-start;
+    align-items: center;
+    right: 0%;
+    left: 0%;
+    padding-top: 100px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.aside-list li {
+  font-size: 18px;
+  padding-top: 30px;
+  color: #D0D0D0;
+  cursor: pointer;
+}
+
+.aside-list li:hover {
+  color: #FFFFFF;  
+  background-position-x:5;
+  border-radius: 10px;
+  font-size: 18px;
+  transition: 0.5s;
+  text-decoration: underline
+}
+
+.frame{
+    margin-left: 190px;
+    margin-top:48px;
+    width:88%;
+    height: 625px;
+    overflow: hidden
+    
+}
