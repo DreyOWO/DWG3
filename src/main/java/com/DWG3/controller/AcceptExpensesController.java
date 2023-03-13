@@ -6,8 +6,6 @@ package com.DWG3.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author HP PROBOOK
  */
 @Controller
-public class IndexController {
+public class AcceptExpensesController {
     
-    @GetMapping("/")
-    public String Index(Model model) {
-        return "Index";
+    @RequestMapping("/aceptarGastos")
+    public String AcceptExpenses(Model model) {
+        model.addAttribute("attribute", "value");
+        return "AceptarGastos";
     }
-    
     
 }

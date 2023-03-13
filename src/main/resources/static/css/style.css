@@ -75,24 +75,23 @@ main-header {
     color: white;
 }*/
 
-.aside{
+.aside {
     position: absolute;
     width: 200px;
-    height: 753px;
+    height: 100%;
     left: 0px;
     top: 0%;
     overflow: hidden;
     background: #4E73DF;
-    
 }
 
 .text{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.main-header{
-    position: absolute;
-    width: 87%;
+.main-header {
+    position: fixed;
+    width: 100%;
     height: 55px;
     left: 200px;
     top: 0px;
@@ -100,12 +99,11 @@ main-header {
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-.main-footer{
+.main-footer {
     position: fixed;
-    width: 87%;
+    width: 100%;
     height: 49px;
     left: 200px;
-    
     bottom: 0px;
     background: #F4F4F4;
 }
@@ -138,11 +136,11 @@ main-header {
 }
 
 .header-list li {
-  font-size: 18px;
-  margin: 0 10px;
-  padding-left: 20px;
-  color: #B0B0B0;
-  cursor: pointer;
+    font-size: 18px;
+    margin-top: 13.75px;
+    padding-left: 20px;
+    color: #B0B0B0;
+    cursor: pointer;
 }
 
 .header-list li:hover {
@@ -197,4 +195,127 @@ main-header {
     height: 625px;
     overflow: hidden
     
+}
+
+.calendarPage{
+    margin-left: 210px;
+    margin-top:60px;
+    width:85%;
+    height: 640px;
+    overflow: hidden 
+    
+    
+}
+
+a {
+    all: unset;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+    background-color: #fff;
+    display: block;
+}
+
+.contenido {
+    position: fixed;
+    height: 635px;
+    width: 85.4%;
+    background-color: #ffffff;
+    margin-top: 2%;
+    margin-left: 0.8%;
+    overflow: hidden;
+    left: 200px;
+    top: 38px;
+}
+
+.footer-text {
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 12.25px;
+    padding-left: 12px;
+    color: darkgray;
+}
+
+
+
+
+
+
+/*Cards for information*/
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    border: none;
+    position: relative;
+    margin-bottom: 30px;
+    box-shadow: 0 0.46875rem 2.1875rem rgba(90,97,105,0.1), 0 0.9375rem 1.40625rem rgba(90,97,105,0.1), 0 0.25rem 0.53125rem rgba(90,97,105,0.12), 0 0.125rem 0.1875rem rgba(90,97,105,0.1);
+}
+.l-bg-cherry {
+    background: linear-gradient(to right, #493240, #f09) !important;
+    color: #fff;
+}
+
+.l-bg-blue-dark {
+    background: linear-gradient(to right, #373b44, #4286f4) !important;
+    color: #fff;
+}
+
+.l-bg-green-dark {
+    background: linear-gradient(to right, #0a504a, #38ef7d) !important;
+    color: #fff;
+}
+
+.l-bg-orange-dark {
+    background: linear-gradient(to right, #a86008, #ffba56) !important;
+    color: #fff;
+}
+
+.card .card-statistic-3 .card-icon-large .fas, .card .card-statistic-3 .card-icon-large .far, .card .card-statistic-3 .card-icon-large .fab, .card .card-statistic-3 .card-icon-large .fal {
+    font-size: 110px;
+}
+
+.card .card-statistic-3 .card-icon {
+    text-align: center;
+    line-height: 50px;
+    margin-left: 15px;
+    color: #000;
+    position: absolute;
+    right: -5px;
+    top: 20px;
+    opacity: 0.1;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+.l-bg-green {
+    background: linear-gradient(135deg, #23bdb8 0%, #43e794 100%) !important;
+    color: #fff;
+}
+
+.l-bg-orange {
+    background: linear-gradient(to right, #f9900e, #ffba56) !important;
+    color: #fff;
+}
+
+.l-bg-cyan {
+    background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
+    color: #fff;
+}
+
+.l-bg-red {
+    background: linear-gradient(to right, #f90e0e, #ff5656) !important;
+    color: #fff;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title></title>
         <meta charset="UTF-8">
@@ -7,28 +7,30 @@
     <body>
         <header class="main-header" th:fragment="header">
             <ul class="header-list">
-                <li><i class="fas fa-home"></i>Dashboard</li>
+                <li><i class="fas fa-home"></i><a th:href="@{/home}">Dashboard</a></li>
                 <li><i class="fas fa-life-ring"></i>Soporte</li>
-                <li><i class="fas fa-calendar"></i>Calendario</li>
-                <li><i class="fas fa-info-circle tour" onclick="iniciarTour();"></i>Tour</li>
-                <li style="padding-left: 55%" title="Cerrar Sesión" onclick="logOut();"><i class="fas fa-arrow-right"></i></li>
+                <li><i class="fas fa-calendar"></i><a th:href="@{/calendario}">Calendario</a></li>
+                <li><i class="fas fa-info-circle tour"></i>Tour</li>
             </ul>
         </header>
         <aside class="aside" th:fragment="aside">
             <h2 class="aside-title">Usuario Logueado</h2>
             <br>
             <ul class="aside-list">
-                <li><i class=""></i>Facturar</li>
-                <li><i class=""></i>Reportes</li>
-                <li><i class=""></i>Servicios</li>
-                <li><i class=""></i>Productos</li>
-                <li><i class=""></i>Clientes</li>
-                <li><i class=""></i>CxC</li>
-                <li><i class=""></i>Descuentos</li>
-                <li><i class=""></i>Aceptar Gastos</li>
-                <li><i class=""></i>Proveedores</li>
+                <li><i class=""></i><a th:href="@{/facturar}">Facturar</a></li>
+                <li><i class=""></i><a th:href="@{/reportes}">Reportes</a></li>
+                <li><i class=""></i><a th:href="@{/servicios}">Servicios</a></li>
+                <li><i class=""></i><a th:href="@{/productos}">Productos</a></li>
+                <li><i class=""></i><a th:href="@{/clientes}">Clientes</a></li>
+                <li><i class=""></i><a th:href="@{/cuentasxcobrar}">CxC</a></li>
+                <li><i class=""></i><a th:href="@{/descuentos}">Descuentos</a></li>
+                <li><i class=""></i><a th:href="@{/aceptarGastos}">Aceptar Gastos</a></li>
+                <li><i class=""></i><a th:href="@{/proveedores}">Proveedores</a></li>
+                <li onclick="closeSession()"><i class="fas fa-arrow-right"></i> Cerrar Sesión</li>
             </ul>
         </<aside>
-        <footer class="main-footer" th:fragment="footer"></footer>
+            <footer class="main-footer" th:fragment="footer">
+                <p class="footer-text" >Copyright © Derechos Reservados 2023</p>
+            </footer>
     </body>
 </html>
