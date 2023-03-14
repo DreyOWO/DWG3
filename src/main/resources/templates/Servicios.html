@@ -16,5 +16,42 @@
         <header th:replace="layout/Plantilla :: header"></header>
         <footer th:replace="layout/Plantilla :: footer"></footer>
         <aside th:replace="layout/Plantilla :: aside"/>
+        <section class="contenido">
+            <div class="contenedor">
+              <h2>Crear nuevo Servicio</h2>
+              <div class="row">
+                <div class="col-lg-4 col-4">
+                    <p><strong>Nombre del Servicio:</strong> 
+                    <input class="form-control" type="text"></p>
+                </div>
+                <div class="col-lg-2 col-2">
+                    <p><strong>Moneda:</strong> 
+                        <select class="form-control" id="moneda">
+                          <option>USD</option>
+                          <option>EUR</option>
+                          <option>GBP</option>
+                        </select>
+                </div>
+                
+                <div class="col-lg-2 col-2">
+                    <p><strong>Porcentaje por Servicio:</strong> 
+                    <input class="form-control" type="number"></p>
+                </div>
+            </div>   
+              <br>
+              <div class="row">
+                <div class="col-lg-2 col-2">
+                    <p><strong>Codigo CAByS:</strong> 
+                    <input class="form-control" type="number"></p>
+                </div>
+                <div class="col-lg-2 col-2">
+                    <p><strong>Precio:</strong> 
+                    <input class="form-control" type="number"></p>
+                </div>
+                <div class="col-lg-2 col-2">
+                    <button style="margin-top:25px" class="btn btn-outline-success">Crear Servicio</button>
+                </div>
+              </div>    
+        </section>
 </body>
 </html>
