@@ -16,5 +16,20 @@
         <header th:replace="layout/Plantilla :: header"></header>
         <footer th:replace="layout/Plantilla :: footer"></footer>
         <aside th:replace="layout/Plantilla :: aside"/>
+        <section class="contenido">
+            <div class="contenedor">
+                <h2>Reporte de ventas:</h2>
+                <p><strong>Fecha Inicial:</strong> <input type="date"></p>
+                <p><strong>Fecha Final:</strong> <input type="date"></p>
+                <p><strong>Nombre del cliente:</strong> <input type="text"></p>
+                <button class="boton-verde">Generar reporte</button>
+              </div>
+              <div class="contenedor">
+                <h2>Reporte de Gastos:</h2>
+                <p><strong>Fecha Inicial:</strong> <input type="date"></p>
+                <p><strong>Fecha Final:</strong> <input type="date"></p>
+                <button class="boton-verde">Generar reporte</button>
+              </div>    
+        </section>
 </body>
 </html>
