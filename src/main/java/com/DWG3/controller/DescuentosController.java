@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author HP PROBOOK
  */
 @Controller
-public class CustomersController {
+public class DescuentosController {
     
-    @RequestMapping("/clientes")
-    public String clientes(Model model) {
+    @RequestMapping("/descuentos")
+    public String descuentos(Model model) {
         model.addAttribute("attribute", "value");
-        return "Clientes";
+        return "Descuentos";
     }
     
 }

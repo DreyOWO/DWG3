@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author HP PROBOOK
  */
 @Controller
-public class CalendarController {
+public class CalendarioController {
     
     @RequestMapping("/calendario")
     public String page(Model model) {

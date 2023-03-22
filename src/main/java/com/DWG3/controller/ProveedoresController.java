@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author HP PROBOOK
  */
 @Controller
-public class SuppliersController {
+public class ProveedoresController {
     
     @RequestMapping("/proveedores")
     public String proveedores(Model model) {

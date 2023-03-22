@@ -13,12 +13,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author HP PROBOOK
  */
 @Controller
-public class ReportsController {
+public class FacturasController {
     
-    @RequestMapping("/reportes")
-    public String Reports(Model model) {
+    @RequestMapping("/facturar")
+    public String Facturar(Model model) {
         model.addAttribute("attribute", "value");
-        return "Reportes";
+        return "Facturar";
     }
+    
+    
+//    @RequestMapping("/facturar/listafacturas")
+//    public String Listar(Model model) {
+//        model.addAttribute("attribute", "value");
+//        return "view.name";
+//    }
     
 }
