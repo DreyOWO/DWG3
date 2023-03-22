@@ -1,141 +1,266 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Facturar</title>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <link href="css/style.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-        <link href="/DataTables/datatables.css">
-        <script src="/DataTables/datatables.js"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="scripts/General.js" type="text/javascript"></script>
-        <script src="static/scripts/intro.js" type="text/javascript"></script>
-    </head>
-    <body>       
-        <header th:replace="layout/Plantilla :: header"></header>
-        <footer th:replace="layout/Plantilla :: footer"></footer>
-        <aside th:replace="layout/Plantilla :: aside"/>
-        <section class="contenido">
-            <div class="form-group row">
-                <label for="cliente" class="col-sm-2 col-form-label">Cliente:</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="cliente" placeholder="Nombre del cliente">
-                </div>
-                <label for="fecha" class="col-sm-2 col-form-label">Fecha:</label>
-                <div class="col-sm-4">
-                  <input type="date" class="form-control" id="fecha">
-                </div>
-              </div>
-              
-              <div class="form-group row">
-                <label for="medio-pago" class="col-sm-2 col-form-label">Medio de pago:</label>
-                <div class="col-sm-4">
-                  <select class="form-control" id="medio-pago">
-                    <option>Efectivo</option>
-                    <option>Tarjeta de crédito</option>
-                    <option>Tarjeta de débito</option>
+
+<head>
+   <title>Facturar</title>
+   <meta charset="UTF-8">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+   <link href="css/style.css" rel="stylesheet" type="text/css"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="scripts/General.js" type="text/javascript"></script>
+   <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+   <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+   <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+   <script src="scripts/Facturar.js" type="text/javascript"></script>
+   <script src="scripts/Clientes.js" type="text/javascript"></script>
+</head>
+<body>
+   <header th:replace="layout/Plantilla :: header"></header>
+   <footer th:replace="layout/Plantilla :: footer"></footer>
+   <aside th:replace="layout/Plantilla :: aside"/>
+   <section class="contenido">
+      <form>
+         <div class="row">
+            <div class="col-lg-4 col-4">
+               <label>Cliente:</label>
+               <div class="input-group input-group-md">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input id="txtClienteFacturar" name="txtClienteFacturar" type="text" class="form-control">
+                  <div class="input-group-append">
+                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalClienteAgregar">Nuevo Cliente</button>
+                  </div>
+               </div>
+            </div>
+            <div class="col-lg-2 col-2">
+               <label>Fecha:</label>
+               <div class="input-group input-group-md">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                  </div>
+                  <input id="dpFechaFactura" name="dpFechaFactura" type="date" class="form-control dp">
+               </div>
+            </div>
+            <div class="col-lg-3 col-3">
+               <label>Medio de Pago:</label>
+               <div class="input-group input-group-md">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-money-bill-wave"></i></span>
+                  </div>
+                  <select id="ddlMedioPago" name="ddlMedioPago" class="form-control" onchange="">
+                     <option value="">--Seleccione--</option>
+                     <option value="1">Efectivo</option>
+                     <option value="2">Transferencia</option>
+                     <option value="3">Tarjeta</option>
                   </select>
-                </div>
-                <label for="dias-credito" class="col-sm-2 col-form-label">Días de crédito:</label>
-                <div class="col-sm-4">
-                  <input type="number" class="form-control" id="dias-credito" placeholder="Número de días">
-                </div>
-              </div>
-              
-              <div class="form-group row">
-                <label for="detalle" class="col-sm-2 col-form-label">Detalle:</label>
-                <div class="col-sm-4">
-                  <input type="text" class="form-control" id="detalle" placeholder="Descripción del detalle">
-                </div>
-                <label for="moneda" class="col-sm-2 col-form-label">Moneda:</label>
-                <div class="col-sm-3">
-                  <select class="form-control" id="moneda">
-                    <option>USD</option>
-                    <option>EUR</option>
-                    <option>GBP</option>
+               </div>
+            </div>
+            <div class="col-lg-1 col-1" style="margin-top: 35px">
+               <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="chkUsaCredito" onclick="UsaCredito();" />
+                  <label class="custom-control-label" for="chkUsaCredito">Crédito</label>
+               </div>
+            </div>
+            <div class="col-lg-2 col-2" id="divUsaCredito">
+               <label>Días Crédito:</label>
+               <div class="input-group input-group-md">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input id="txtDiasCredito" name="txtDiasCredito" type="text" class="form-control">
+               </div>
+            </div>
+         </div>
+          <br>
+         <div class="row">
+            <div class="col-lg-3 col-3">
+               <label>Moneda:</label>
+               <div class="input-group input-group-md">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fa fa-coins"></i></span>
+                  </div>
+                  <select id="ddlMoneda" name="ddlMoneda" class="form-control" onchange="">
+                     <option value="188">Colones</option>
+                     <option value="840">Dólares</option>
                   </select>
-                </div>
-                <div class="col-sm-1">
-                  <button type="button" class="btn btn-primary">Agregar</button>
-                </div>
-              </div>
-              <table id="Facturar" class="display">
-                <thead>
-                    <tr>
-                        <th> |CANT.| </th>
-                        <th>DESCRIPCION| </th>
-                        <th>IMPUESTO</th>
-                        <th>|SUBTOTAL|</th>
-                        <th>MONTO FINAL|</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                    </tr>
-
-                    <tr>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                    </tr>
-
-                    <tr>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                    </tr>
-                    <tr>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                    </tr>
-
-                    <tr>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                        <td>xxx xxxx   xxxxxxx</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="button-container">
-                <button class="facturar-button">Facturar</button>
-                <button class="reporte-button">Reporte</button>
-                <button class="regresar-button">Regresar</button>
-              </div>
-            <div class="container-right">
-                <div class="container">
-                  <span>Subtotal:</span>
-                  <span id="subtotal"></span>
-                </div>
-                <div class="container">
-                  <span>Descuento:</span>
-                  <span id="descuento"></span>
-                </div>
-                <div class="container">
-                  <span>Impuesto:</span>
-                  <span id="impuesto"></span>
-                </div>
-                <div class="container">
-                  <span>TOTAL FINAL:</span>
-                  <span id="total"></span>
-                </div>
-              </div>
-        </section>
+               </div>
+            </div>
+            <div class="col-lg-4 col-4">
+               <label>Detalle:</label>
+               <div class="input-group input-group-md">
+                  <div class="input-group-prepend">
+                     <span class="input-group-text"><i class="fa fa-cart-plus"></i></span>
+                  </div>
+                  <select id="ddlDetalles" name="ddlMedioPago" class="form-control catDetallesFactura" onchange=""></select>
+               </div>
+            </div>
+            <div class="col-lg-2 col-2" style="margin-top: 30px">
+               <button type="button" class="btn btn-primary">Agregar Línea</button>
+            </div>
+         </div>
+      </form>
+      <br>
+      <div class="row" style="margin-left: -1px; margin-right: 5px" >
+         <table id="dtDetalles" class="table-bordered">
+            <thead>
+               <tr>
+                  <th>Cant.</th>
+                  <th>Descripción</th>
+                  <th>P. Unitario</th>
+                  <th>Imp. Unitario</th>
+                  <th>P. C/Imp</th>
+                  <th>Total</th>
+                  <th>Acciones</th>
+               </tr>
+            </thead>
+         </table>
+      </div>
+      <br>
+      <div class="row">
+         <div class="col-lg-2 col-2">
+            <h5>Subtotal:</h5>
+            <span id="descuento"></span>
+            <h5>Descuento:</h5>
+            <span id="descuento"></span>
+            <h5>Impuesto:</h5>
+            <span id="descuento"></span>
+            <h5>Total:</h5>
+            <span id="descuento"></span>
+         </div>
+      </div>
+   </section>
+   <!-- Modal Agregar Cliente -->
+   <div class="modal fade" id="modalClienteAgregar" tabindex="-1" role="dialog" aria-labelledby="modalClienteAgregar" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo cliente</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+               <div class='row'>
+                  <div class="col-lg-4 col-4">
+                     <label>Identificación:</label>
+                     <div class="input-group input-group-md">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
+                        </div>
+                        <input id="txtCedulaBuscarClienteNuevo" name="txtCedulaBuscarClienteNuevo" type="number" class="form-control">
+                     </div>
+                  </div>
+                  <div class="col-lg-2 col-2" style="margin-top: 30px">
+                     <button type="button" class="btn btn-info" onclick='BuscarCliente();'>Buscar</button>
+                  </div>
+                  <div class='col-lg-6 col-6'>
+                     <label>Situación Tributaria:</label>
+                     <span><label id="lblSituacion" class="badge bg-primary" hidden style='font-size: 15px; color: white'></label></span>
+                  </div>
+               </div>
+               <br>
+               <form>
+                  <div class='row'>
+                     <div class="col-lg-6 col-6">
+                        <label>Nombre:</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-font"></i></span>
+                           </div>
+                           <input id="txtNombreClienteNuevo" name="txtNombreClienteNuevo" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-lg-3 col-3">
+                        <label>Tipo Identificación:</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-university"></i></span>
+                           </div>
+                           <select id="ddlTipoCedula" name="ddlTipoCedula" class="form-control" onchange="">
+                              <option value="">...</option>
+                              <option value="01">Física</option>
+                              <option value="02">Jurídica</option>
+                              <option value="03">DIMEX</option>
+                              <option value="04">NITE</option>
+                           </select>
+                        </div>
+                     </div>
+                     <div class="col-lg-3 col-3">
+                        <label>Identificación:</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
+                           </div>
+                           <input id="txtCedulaClienteNuevo" name="txtCedulaClienteNuevo" type="number" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class='row'>
+                     <div class="col-lg-3 col-3">
+                        <label>Teléfono</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                           </div>
+                           <input id="txtTelefonoClienteNuevo" name="txtTelefonoClienteNuevo" type="text" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-lg-5 col-5">
+                        <label>Correo:</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-at"></i></span>
+                           </div>
+                           <input id="txtCorreoClienteNuevo" name="txtCorreoClienteNuevo" type="email" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-lg-4 col-4" style="margin-top: 35px">
+                        <div class="custom-control custom-switch">
+                           <input type="checkbox" class="custom-control-input" id="chkClienteFactura" checked onclick="" />
+                           <label class="custom-control-label" for="chkClienteFactura">¿Factura Electrónica?</label>
+                        </div>
+                     </div>
+                  </div>
+                  <br>
+                  <div class='row'>
+                     <div class="col-lg-3 col-3" style="margin-top: 35px">
+                        <div class="custom-control custom-switch">
+                           <input type="checkbox" class="custom-control-input" id="chkTieneCredito"  onclick="TieneCreditoCliente()" />
+                           <label class="custom-control-label" for="chkTieneCredito">¿Tiene Crédito?</label>
+                        </div>
+                     </div>
+                     <div class="col-lg-3 col-3">
+                        <label>Días Crédito:</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-calendar"></i></span>
+                           </div>
+                           <input id="txtDiasCreditoClienteNuevo" disabled value="0" name="txtDiasCreditoClienteNuevo" type="number" class="form-control">
+                        </div>
+                     </div>
+                     <div class="col-lg-3 col-3">
+                        <label>Límite Crédito:</label>
+                        <div class="input-group input-group-md">
+                           <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fa fa-list-ol"></i></span>
+                           </div>
+                           <input id="txtLimiteCreditoClienteNuevo" disabled value="0" name="txtLimiteCreditoClienteNuevo" type="number" class="form-control">
+                        </div>
+                     </div>
+                  </div>
+            </div>
+            </form>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+               <button type="button" class="btn btn-success" >Agregar Cliente</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- End Modal Agregar Cliente -->
 </body>
 </html>

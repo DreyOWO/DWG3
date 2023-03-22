@@ -5,6 +5,8 @@ Este es el CSS correcto.
 @import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @import url('https://unpkg.com/intro.js/minified/introjs.min.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.standalone.min.css');
+
 
 .txt{
     font-family: serif;
@@ -246,8 +248,17 @@ body {
     color: darkgray;
 }
 
+.btnAcciones {
+    padding: 2px 6px 3px !important;
+    margin-left: 3px !important;
+    width: 28px !important;
+    font-size: 14px !important;
+}
 
 
+label{
+    font-weight: 700;
+}
 
 
 
@@ -318,4 +329,48 @@ body {
 .l-bg-red {
     background: linear-gradient(to right, #f90e0e, #ff5656) !important;
     color: #fff;
+}
+
+/*Toast*/
+#custom-target {
+  position: relative;
+  width: 900px;
+  height: 300px;
+  border-style: solid;
+}
+
+.position-absolute {
+  position: absolute !important;
+}
+
+.colored-toast.swal2-icon-success {
+  background-color: #a5dc86 !important;
+}
+
+.colored-toast.swal2-icon-error {
+  background-color: #f27474 !important;
+}
+
+.colored-toast.swal2-icon-warning {
+  background-color: #f8bb86 !important;
+}
+
+.colored-toast.swal2-icon-info {
+  background-color: #3fc3ee !important;
+}
+
+.colored-toast.swal2-icon-question {
+  background-color: #87adbd !important;
+}
+
+.colored-toast .swal2-title {
+  color: white;
+}
+
+.colored-toast .swal2-close {
+  color: white;
+}
+
+.colored-toast .swal2-html-container {
+  color: white;
 }
