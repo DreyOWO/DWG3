@@ -7,13 +7,10 @@ package com.DWG3.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+// imports aun no utilizados comentados para evitar errores de compilación
+// import org.springframework.web.bind.annotation.PostMapping;
+// import org.springframework.web.bind.annotation.RequestMapping;
 
-/**
- *
- * @author HP PROBOOK
- */
 @Controller
 public class IndexController {
     

@@ -1,9 +1,18 @@
 try{
     var dataSet = [
-        { Nombre: "Arroz Blanco", Moneda: "Colones", Impuesto: 13, Cabys: 8399000000000, Precio: 1000,Cantidad:20},
-        { Nombre: "Azúcar", Moneda: "Colones", Impuesto: 13, Cabys: 8399000000000, Precio: 1000,Cantidad:20}
-    
-    ];
+        { Nombre: "Arroz Blanco", Moneda: "Colones", Impuesto: 13, Cabys: 611810000, Precio: 1000, Cantidad: 20 },
+        { Nombre: "Azúcar", Moneda: "Colones", Impuesto: 13, Cabys: 611920000, Precio: 1000, Cantidad: 20 },
+        { Nombre: "Leche", Moneda: "Colones", Impuesto: 13, Cabys: 611710000, Precio: 2000, Cantidad: 15 },
+        { Nombre: "Huevos", Moneda: "Colones", Impuesto: 13, Cabys: 611820000, Precio: 500, Cantidad: 30 },
+        { Nombre: "Plátanos", Moneda: "Colones", Impuesto: 13, Cabys: 611250000, Precio: 500, Cantidad: 10 },
+        { Nombre: "Manzanas", Moneda: "Colones", Impuesto: 13, Cabys: 611400000, Precio: 1000, Cantidad: 5 },
+        { Nombre: "Pasta de dientes", Moneda: "Colones", Impuesto: 13, Cabys: 611830000, Precio: 1500, Cantidad: 10 },
+        { Nombre: "Papel higiénico", Moneda: "Colones", Impuesto: 13, Cabys: 611840000, Precio: 2000, Cantidad: 10 },
+        { Nombre: "Jabón de manos", Moneda: "Colones", Impuesto: 13, Cabys: 611850000, Precio: 1000, Cantidad: 15 },
+        { Nombre: "Atún enlatado", Moneda: "Colones", Impuesto: 13, Cabys: 611610000, Precio: 1000, Cantidad: 5 }
+      ];
+      
+      
 
     var table;
     $(document).ready(function(){

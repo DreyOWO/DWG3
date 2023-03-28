@@ -1,9 +1,17 @@
 try{
     var dataSet = [
-        { Nombre: "Servicios Profesionales", Moneda: "Colones", Impuesto: 13, Cabys: 8399000000000, Precio: 1000},
-        { Nombre: "Electricista", Moneda: "Colones", Impuesto: 13, Cabys: 8399000000000, Precio: 1000}
-    
-    ];
+        { Nombre: "Servicios Profesionales", Moneda: "Colones", Impuesto: 13, Cabys: 8399000000000, Precio: 1000 },
+        { Nombre: "Electricista", Moneda: "Colones", Impuesto: 13, Cabys: 8399000000001, Precio: 1000 },
+        { Nombre: "Mantenimiento de jardines", Moneda: "Colones", Impuesto: 15, Cabys: 811016000, Precio: 25000 },
+        { Nombre: "Servicios de limpieza", Moneda: "Dólares", Impuesto: 10, Cabys: 721015000, Precio: 50 },
+        { Nombre: "Servicios de contabilidad", Moneda: "Colones", Impuesto: 13, Cabys: 691010000, Precio: 50000 },
+        { Nombre: "Servicios de diseño gráfico", Moneda: "Dólares", Impuesto: 10, Cabys: 841112000, Precio: 200 },
+        { Nombre: "Servicios de traducción", Moneda: "Euros", Impuesto: 21, Cabys: 921109000, Precio: 100 },
+        { Nombre: "Servicios de fontanería", Moneda: "Colones", Impuesto: 13, Cabys: 839907000, Precio: 30000 },
+        { Nombre: "Servicios de carpintería", Moneda: "Colones", Impuesto: 13, Cabys: 839904000, Precio: 40000 },
+        { Nombre: "Servicios de programación", Moneda: "Dólares", Impuesto: 10, Cabys: 851410000, Precio: 1000 }
+      ];
+      
 
     var table;
     $(document).ready(function(){
