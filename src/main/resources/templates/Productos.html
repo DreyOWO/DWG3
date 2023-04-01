@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-5">
                         <label>Nombre del Producto:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-font"></i></span>
                             </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col-lg-3 col-3">
                         <label>Moneda:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-coins"></i></span>
                             </div>
@@ -47,11 +47,11 @@
                     </div>
                     <div class="col-lg-3 col-3">
                         <label>Porcentaje Impuesto:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-percentage"></i></span>
                             </div>
-                            <input id="txtImpProducto" name="txtImpProducto" type="number" class="form-control">
+                            <input id="txtImpProducto" name="txtImpProducto" onkeyup="ActualizarPrecioFinalImp()" type="number" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-3">
                         <label>Cabys:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-barcode"></i></span>
                             </div>
@@ -68,25 +68,25 @@
                     </div>
                     <div class="col-lg-2 col-2">
                         <label>Precio:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
                             </div>
-                            <input id="txtPrecioProducto" name="txtPrecioProducto" type="text" class="form-control">
+                            <input id="txtPrecioProducto" name="txtPrecioProducto" onkeyup="ActualizarPrecioFinal()" type="number" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
                         <label>Precio Final:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
                             </div>
-                            <input id="txtPrecioFinalProducto" name="txtPrecioFinalProducto" disabled type="text" class="form-control">
+                            <input id="txtPrecioFinalProducto" name="txtPrecioFinalProducto" disabled type="number" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
                         <label>Cantidad Inventario:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-list-ol"></i></span>
                             </div>

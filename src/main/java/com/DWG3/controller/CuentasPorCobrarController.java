@@ -18,7 +18,7 @@ public class CuentasPorCobrarController {
     @RequestMapping("/cuentasxcobrar")
     public String cuentasCobrar(Model model) {
         model.addAttribute("attribute", "value");
-        return "CxC";
+        return "CxC";           
     }
     
 }

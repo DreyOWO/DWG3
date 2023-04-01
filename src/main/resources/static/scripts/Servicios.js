@@ -15,7 +15,9 @@ try{
 
     var table;
     $(document).ready(function(){
-        DatatableServicios()
+        DatatableServicios();
+      
+      
     });
     
     function DatatableServicios() {
@@ -146,7 +148,21 @@ try{
           })
     }  
     
+    function ActualizarPrecioFinal(){
+        let imp = $("#txtImpServicio").val() / 100;
+        let precio = parseFloat($("#txtPrecioServicio").val());
+        let totalImp = (precio * imp);
+        $("#txtPrecioFinalServicio").val(0);
+        $("#txtPrecioFinalServicio").val(precio + totalImp);
+    }
     
+    function ActualizarPrecioFinalImp(){
+        let imp = $("#txtImpServicio").val() / 100;
+        let precio = parseFloat($("#txtPrecioServicio").val());
+        let totalImp = (precio * imp);
+        $("#txtPrecioFinalServicio").val(0);
+        $("#txtPrecioFinalServicio").val(precio + totalImp);
+    }
     
     
 }

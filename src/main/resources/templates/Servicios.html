@@ -26,7 +26,7 @@
                 <div class="row">
                     <div class="col-lg-5 col-5">
                         <label>Nombre del Servicio:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-font"></i></span>
                             </div>
@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-lg-3 col-3">
                         <label>Moneda:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-coins"></i></span>
                             </div>
@@ -48,11 +48,11 @@
                     </div>
                     <div class="col-lg-3 col-3">
                         <label>Porcentaje Impuesto:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-percentage"></i></span>
                             </div>
-                            <input id="txtImpServicio" name="txtImpServicio" type="number" class="form-control">
+                            <input id="txtImpServicio" name="txtImpServicio" onkeyup="ActualizarPrecioFinalImp()" value=0 type="number" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-3">
                         <label>Cabys:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-barcode"></i></span>
                             </div>
@@ -69,20 +69,20 @@
                     </div>
                     <div class="col-lg-2 col-2">
                         <label>Precio:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
                             </div>
-                            <input id="txtPrecioServicio" name="txtPrecioServicio" type="text" class="form-control">
+                            <input id="txtPrecioServicio" name="txtPrecioServicio" type="number" onkeyup="ActualizarPrecioFinal();" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-2 col-2">
                         <label>Precio Final:</label>
-                        <div class="input-group input-group-md">
+                        <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-dollar-sign"></i></span>
                             </div>
-                            <input id="txtPrecioFinalServicio" name="txtPrecioFinalServicio" disabled type="text" class="form-control">
+                            <input id="txtPrecioFinalServicio" name="txtPrecioFinalServicio" disabled type="number" class="form-control">
                         </div>
                     </div>
                     <div class="col-lg-2 col-2" style="margin-top: 30px">

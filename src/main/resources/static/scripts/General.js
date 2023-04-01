@@ -39,7 +39,7 @@ try{
     }
     
     function goBilling(){
-        window.location.assign("/facturar");
+        window.location.assign("/facturas");
     }
     
     function close(){
@@ -70,6 +70,6 @@ try{
 
 }
 
-catch(Excepcion){
-    console.log("Ocurrió un error general");
+catch(e){
+    console.log("Ocurrió un error general: " + e);
 }

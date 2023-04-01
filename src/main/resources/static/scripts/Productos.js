@@ -79,9 +79,9 @@ try{
                     data: null,
                     "orderable": false,
                     render: function (data, type, row) {
-                        let btn = '<button type="button" class="btn btn-outline-danger button-badge btnAcciones eliminarServicio" title="Eliminar"> <i class="fas fa-trash"></i>';
+                        let btn = '<button type="button" class="btn btn-outline-danger button-badge btnAcciones eliminarProducto" title="Eliminar"> <i class="fas fa-trash"></i>';
                         btn += " ";
-                        btn += ' <button type="button" class="btn btn-outline-success button-badge btnAcciones editarServicio" title="Editar"> <i class="fas fa-pencil-alt"></i>'
+                        btn += ' <button type="button" class="btn btn-outline-success button-badge btnAcciones editarProducto" title="Editar"> <i class="fas fa-pencil-alt"></i>'
                         btn += ' <button type="button" class="btn btn-outline-info button-badge btnAcciones ajusteInventario" title="Ajustar Inventario"> <i class="fas fa-file"></i>'
                         
                         return btn;
@@ -128,10 +128,10 @@ try{
            
         });
 
-        $('#dtProductos').on('click', '.eliminarServicio', function () {
+        $('#dtProductos').on('click', '.eliminarProducto', function () {
             var row = $(this).closest('tr');
-            messageAsk("Eliminar Servicio","¿Desea eliminar el servicio?","question",EliminarServicio)
-            function EliminarServicio(){
+            messageAsk("Eliminar Producto","¿Desea eliminar el producto?","question",EliminarProducto)
+            function EliminarProducto(){
                 table.row(row).remove().draw();
             }
         });
@@ -158,7 +158,21 @@ try{
           })
     }  
     
+    function ActualizarPrecioFinal(){
+        let imp = $("#txtImpProducto").val() / 100;
+        let precio = parseFloat($("#txtPrecioProducto").val());
+        let totalImp = (precio * imp);
+        $("#txtPrecioFinalProducto").val(0);
+        $("#txtPrecioFinalProducto").val(precio + totalImp);
+    }
     
+    function ActualizarPrecioFinalImp(){
+        let imp = $("#txtImpProducto").val() / 100;
+        let precio = parseFloat($("#txtPrecioProducto").val());
+        let totalImp = (precio * imp);
+        $("#txtPrecioFinalProducto").val(0);
+        $("#txtPrecioFinalProducto").val(precio + totalImp);
+    }
     
     
 }

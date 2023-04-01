@@ -1,4 +1,5 @@
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
    <title>Facturar</title>
    <meta charset="UTF-8">
@@ -23,18 +24,22 @@
    <section class="contenido">
       <form>
          <div class="row">
-            <div class="col-lg-4 col-4">
+            <div class="col-lg-3 col-3">
                <label>Cliente:</label>
                <div class="input-group input-group-md">
                   <div class="input-group-prepend">
                      <span class="input-group-text"><i class="fas fa-user"></i></span>
                   </div>
-                  <input id="txtClienteFacturar" name="txtClienteFacturar" type="text" class="form-control">
-                  <div class="input-group-append">
-                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalClienteAgregar">Nuevo Cliente</button>
-                  </div>
+                  <select id="txtClienteFacturar" name="txtClienteFacturar" type="text" class="form-control">
+                      <option value="">--Seleccione--</option></select>                  
                </div>
             </div>
+             <div class='col-lg-1 col-1' style='margin-top: 35px'>
+                <button type="button" class="btn btn-outline-success button-badge btnAcciones" data-toggle="modal" data-target="#modalClienteAgregar" title="Nuevo Cliente"> <i class="fas fa-user-plus"></i>                  
+                <button type="button" class="btn btn-outline-info button-badge btnAcciones" data-toggle="modal" data-target="#modalClienteAgregar" title="Listar Cliente"> <i class="fas fa-list"></i> 
+             </div> 
+             
+             
             <div class="col-lg-2 col-2">
                <label>Fecha:</label>
                <div class="input-group input-group-md">
@@ -65,7 +70,7 @@
                </div>
             </div>
             <div class="col-lg-2 col-2" id="divUsaCredito">
-               <label>Días Crédito:</label>
+               <label>Días:</label>
                <div class="input-group input-group-md">
                   <div class="input-group-prepend">
                      <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -82,7 +87,8 @@
                   <div class="input-group-prepend">
                      <span class="input-group-text"><i class="fa fa-coins"></i></span>
                   </div>
-                  <select id="ddlMoneda" name="ddlMoneda" class="form-control" onchange="">
+                   <select id="ddlMoneda" name="ddlMoneda" class="form-control" onchange="ObtenerDetalles()">
+                      <option value=''>--Seleccione--</option>
                      <option value="188">Colones</option>
                      <option value="840">Dólares</option>
                   </select>
@@ -97,8 +103,9 @@
                   <select id="ddlDetalles" name="ddlMedioPago" class="form-control catDetallesFactura" onchange=""></select>
                </div>
             </div>
-            <div class="col-lg-2 col-2" style="margin-top: 30px">
-               <button type="button" class="btn btn-primary">Agregar Línea</button>
+            <div class="col-lg-4 col-4" style="margin-top: 30px">
+                <button type="button" id="agregarLinea" onclick="AgregarLinea()" class="btn btn-primary">Agregar Línea</button>
+                <button type="button" id="" onclick="" class="btn btn-secondary">Ver Facturas</button>
             </div>
          </div>
       </form>
@@ -114,6 +121,8 @@
                   <th>P. C/Imp</th>
                   <th>Total</th>
                   <th>Acciones</th>
+                  <th style="display:none"></th>
+                  <th style="display:none"></th>    
                </tr>
             </thead>
          </table>

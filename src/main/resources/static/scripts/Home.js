@@ -43,32 +43,32 @@ try {
           })
     }    
         
-    function initializeTour(){
-        
-        intro.setOptions({
-            showProgress: true,
-            prevLabel: "Ant",
-            nextLabel: "Sig",
-            doneLabel: "Salir",
-            skipLabel: "Salir",
-            showBullets: false,
-            steps: [
-
-                {
-                    element: document.querySelector('#inicioAyuda'),
-                    intro: '¿Necesita ayuda para agregar un evento?',
-                    position: 'left'
-                }
-               
-                
-                
-            ]
-
-        });
-        
-        
-    }
-    
+//    function initializeTour(){
+//        
+//        intro.setOptions({
+//            showProgress: true,
+//            prevLabel: "Ant",
+//            nextLabel: "Sig",
+//            doneLabel: "Salir",
+//            skipLabel: "Salir",
+//            showBullets: false,
+//            steps: [
+//
+//                {
+//                    element: document.querySelector('#inicioAyuda'),
+//                    intro: '¿Necesita ayuda para agregar un evento?',
+//                    position: 'left'
+//                }
+//               
+//                
+//                
+//            ]
+//
+//        });
+//        
+//        
+//    }
+//    
     
     
 } catch (Exception) {

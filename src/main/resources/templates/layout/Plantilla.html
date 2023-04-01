@@ -9,10 +9,7 @@
         <!-- End Bootstrap -->
         <link href="/css/style.css" rel="stylesheet" type="text/css"/>
         <script src="/scripts/General.js" type="text/javascript"></script>
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-        
-        
-        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <header class="main-header" th:fragment="header">
@@ -27,7 +24,7 @@
             <h2 class="aside-title">Usuario Logueado</h2>
             <br>
             <ul class="aside-list">
-                <li><i class=""></i><a th:href="@{/facturar}">Facturar</a></li>
+                <li><i class=""></i><a th:href="@{/facturacion}">Facturar</a></li>
                 <li><i class=""></i><a th:href="@{/reportes}">Reportes</a></li>
                 <li><i class=""></i><a th:href="@{/servicios}">Servicios</a></li>
                 <li><i class=""></i><a th:href="@{/productos}">Productos</a></li>
@@ -37,7 +34,7 @@
                 <li><i class=""></i><a th:href="@{/proveedores}">Proveedores</a></li>
                 <li onclick="closeSession()"><i class="fas fa-arrow-right"></i> Cerrar Sesión</li>
             </ul>
-        </<aside>
+        </aside>
             <footer class="main-footer" th:fragment="footer">
                 <p class="footer-text" >Copyright © Derechos Reservados 2023</p>
             </footer>

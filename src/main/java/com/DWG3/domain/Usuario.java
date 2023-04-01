@@ -7,8 +7,6 @@ package com.DWG3.domain;
 import lombok.Data;
 import jakarta.persistence.Entity;
 
-@Data
-@Entity
 public class Usuario {
     
 }

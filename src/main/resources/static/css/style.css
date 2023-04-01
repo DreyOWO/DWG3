@@ -236,7 +236,8 @@ body {
     background-color: #ffffff;
     margin-top: 2%;
     margin-left: 0.8%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     left: 200px;
     top: 38px;
 }
@@ -374,3 +375,25 @@ label{
 .colored-toast .swal2-html-container {
   color: white;
 }
+
+
+.expand-link {
+  display: block;
+  padding: 0.7rem;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+
+.expand-link:hover {
+  background-color: #4286f4;
+  color: #fff;
+  transform: scale(1.02);
+  
+}
+
+.hide_me{
+    display: none
+}
+
