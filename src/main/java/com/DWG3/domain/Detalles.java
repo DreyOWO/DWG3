@@ -28,6 +28,7 @@ public class Detalles {
     private float precio;
     private float precioFinal;
     private int tipo_detalle;
+    //private String result;
     
     public Detalles() {
     }

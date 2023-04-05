@@ -4,6 +4,7 @@
  */
 package com.DWG3;
 
+import com.DWG3.service.ClienteServiceImpl;
 import com.DWG3.service.DetalleService;
 import com.DWG3.service.DetalleServiceImpl;
 import org.springframework.context.annotation.Bean;
@@ -17,5 +18,11 @@ public class AppConfig {
     @Primary
     public DetalleServiceImpl detalleService() {
         return new DetalleServiceImpl();
+    }
+    
+    @Bean
+    @Primary
+    public ClienteServiceImpl clienteService() {
+        return new ClienteServiceImpl();
     }
 }

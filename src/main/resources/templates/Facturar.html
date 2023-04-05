@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
    <title>Facturar</title>
    <meta charset="UTF-8">
@@ -16,6 +16,9 @@
    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
    <script src="scripts/Facturar.js" type="text/javascript"></script>
    <script src="scripts/Clientes.js" type="text/javascript"></script>
+   <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+   <script src="plugins/messages_es.js"></script>
+
 </head>
 <body>
    <header th:replace="layout/Plantilla :: header"></header>
@@ -35,7 +38,7 @@
                </div>
             </div>
              <div class='col-lg-1 col-1' style='margin-top: 35px'>
-                <button type="button" class="btn btn-outline-success button-badge btnAcciones" data-toggle="modal" data-target="#modalClienteAgregar" title="Nuevo Cliente"> <i class="fas fa-user-plus"></i>                  
+                <button type="button" class="btn btn-outline-success button-badge btnAcciones" data-toggle="modal" data-target="#modalClienteAgregar" title="Nuevo Cliente" onclick="LimpiarCamposAgregarCliente()"> <i class="fas fa-user-plus"></i>                  
                 <button type="button" class="btn btn-outline-info button-badge btnAcciones" data-toggle="modal" data-target="#modalClienteAgregar" title="Listar Cliente"> <i class="fas fa-list"></i> 
              </div> 
              
@@ -104,8 +107,8 @@
                </div>
             </div>
             <div class="col-lg-4 col-4" style="margin-top: 30px">
-                <button type="button" id="agregarLinea" onclick="AgregarLinea()" class="btn btn-primary">Agregar Línea</button>
-                <button type="button" id="" onclick="" class="btn btn-secondary">Ver Facturas</button>
+                <button type="button" id="agregarLinea" onclick="ValidarAgregarLinea()" class="btn btn-primary">Agregar Línea</button>
+                <button type="button" id="" onclick="AgregarLinea()" class="btn btn-secondary">Ver Facturas</button>
             </div>
          </div>
       </form>
@@ -121,25 +124,54 @@
                   <th>P. C/Imp</th>
                   <th>Total</th>
                   <th>Acciones</th>
-                  <th style="display:none"></th>
-                  <th style="display:none"></th>    
+                  <th>TarifaIVA</th>
+                  <th>Código Cabys</th>
+                  <th>Moneda</th>
+                  <th>IdDetalle</th>
                </tr>
             </thead>
          </table>
       </div>
       <br>
       <div class="row">
-         <div class="col-lg-2 col-2">
-            <h5>Subtotal:</h5>
-            <span id="descuento"></span>
-            <h5>Descuento:</h5>
-            <span id="descuento"></span>
-            <h5>Impuesto:</h5>
-            <span id="descuento"></span>
-            <h5>Total:</h5>
-            <span id="descuento"></span>
-         </div>
-      </div>
+        <div class="col-lg-3 col-3">
+            <label>Subtotal:</label>
+            <div class="input-group input-group-md">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-calculator"></i></span>
+                </div>
+                <input id="txtSubtotal" name="txtSubtotal" type="number" class="form-control">
+            </div>
+        </div>
+        <div class="col-lg-3 col-3">
+            <label>Descuento:</label>
+            <div class="input-group input-group-md">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-calculator"></i></span>
+                </div>
+                <input id="txtDescuento" name="txtDescuento" type="number" class="form-control">
+            </div>
+        </div> 
+        <div class="col-lg-3 col-3">
+            <label>Impuestos:</label>
+            <div class="input-group input-group-md">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-calculator"></i></span>
+                </div>
+                <input id="txtImpuestos" name="txtImpuestos" type="number" class="form-control">
+            </div>
+        </div> 
+        <div class="col-lg-3 col-3">
+            <label>Totales:</label>
+            <div class="input-group input-group-md">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span>
+                </div>
+                <input id="txtTotal" name="txtTotal" type="number" class="form-control">
+            </div>
+        </div> 
+
+    </div>
    </section>
    <!-- Modal Agregar Cliente -->
    <div class="modal fade" id="modalClienteAgregar" tabindex="-1" role="dialog" aria-labelledby="modalClienteAgregar" aria-hidden="true">
@@ -152,6 +184,7 @@
                </button>
             </div>
             <div class="modal-body">
+               <form id="frmBuscarCliente">
                <div class='row'>
                   <div class="col-lg-4 col-4">
                      <label>Identificación:</label>
@@ -162,16 +195,17 @@
                         <input id="txtCedulaBuscarClienteNuevo" name="txtCedulaBuscarClienteNuevo" type="number" class="form-control">
                      </div>
                   </div>
-                  <div class="col-lg-2 col-2" style="margin-top: 30px">
-                     <button type="button" class="btn btn-info" onclick='BuscarCliente();'>Buscar</button>
+                  <div class="col-lg-2 col-2" style="margin-top: 32px">
+                     <button type="button" class="btn btn-info" onclick='BuscarClienteHacienda();'>Buscar</button>
                   </div>
                   <div class='col-lg-6 col-6'>
                      <label>Situación Tributaria:</label>
                      <span><label id="lblSituacion" class="badge bg-primary" hidden style='font-size: 15px; color: white'></label></span>
                   </div>
                </div>
+               </form>
                <br>
-               <form>
+               <form id="frmAgregarCliente">
                   <div class='row'>
                      <div class="col-lg-6 col-6">
                         <label>Nombre:</label>
@@ -179,7 +213,7 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-font"></i></span>
                            </div>
-                           <input id="txtNombreClienteNuevo" name="txtNombreClienteNuevo" type="text" class="form-control">
+                           <input id="txtNombreClienteNuevo" name="nombre" required type="text" class="form-control">
                         </div>
                      </div>
                      <div class="col-lg-3 col-3">
@@ -188,7 +222,7 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-university"></i></span>
                            </div>
-                           <select id="ddlTipoCedula" name="ddlTipoCedula" class="form-control" onchange="">
+                           <select id="ddlTipoCedula" name="tipoIdentificacion" required class="form-control" onchange="">
                               <option value="">...</option>
                               <option value="01">Física</option>
                               <option value="02">Jurídica</option>
@@ -203,7 +237,7 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-id-badge"></i></span>
                            </div>
-                           <input id="txtCedulaClienteNuevo" name="txtCedulaClienteNuevo" type="number" class="form-control">
+                           <input id="txtCedulaClienteNuevo" name="identificacion" required type="number" class="form-control">
                         </div>
                      </div>
                   </div>
@@ -215,7 +249,7 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-phone"></i></span>
                            </div>
-                           <input id="txtTelefonoClienteNuevo" name="txtTelefonoClienteNuevo" type="text" class="form-control">
+                           <input id="txtTelefonoClienteNuevo" name="telefono" required type="text" class="form-control">
                         </div>
                      </div>
                      <div class="col-lg-5 col-5">
@@ -224,12 +258,12 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-at"></i></span>
                            </div>
-                           <input id="txtCorreoClienteNuevo" name="txtCorreoClienteNuevo" type="email" class="form-control">
+                           <input id="txtCorreoClienteNuevo" name="correo" required type="email" class="form-control">
                         </div>
                      </div>
                      <div class="col-lg-4 col-4" style="margin-top: 35px">
                         <div class="custom-control custom-switch">
-                           <input type="checkbox" class="custom-control-input" id="chkClienteFactura" checked onclick="" />
+                           <input type="checkbox" class="custom-control-input" id="chkClienteFactura" name="facturaElectronicamente" checked onclick="" />
                            <label class="custom-control-label" for="chkClienteFactura">¿Factura Electrónica?</label>
                         </div>
                      </div>
@@ -238,7 +272,7 @@
                   <div class='row'>
                      <div class="col-lg-3 col-3" style="margin-top: 35px">
                         <div class="custom-control custom-switch">
-                           <input type="checkbox" class="custom-control-input" id="chkTieneCredito"  onclick="TieneCreditoCliente()" />
+                           <input type="checkbox" class="custom-control-input" id="chkTieneCredito" name="tieneCredito" onclick="TieneCreditoCliente()" />
                            <label class="custom-control-label" for="chkTieneCredito">¿Tiene Crédito?</label>
                         </div>
                      </div>
@@ -248,7 +282,7 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                            </div>
-                           <input id="txtDiasCreditoClienteNuevo" disabled value="0" name="txtDiasCreditoClienteNuevo" type="number" class="form-control">
+                           <input id="txtDiasCreditoClienteNuevo" disabled value="0" name="diasCredito" type="number" class="form-control">
                         </div>
                      </div>
                      <div class="col-lg-3 col-3">
@@ -257,7 +291,7 @@
                            <div class="input-group-prepend">
                               <span class="input-group-text"><i class="fa fa-list-ol"></i></span>
                            </div>
-                           <input id="txtLimiteCreditoClienteNuevo" disabled value="0" name="txtLimiteCreditoClienteNuevo" type="number" class="form-control">
+                           <input id="txtLimiteCreditoClienteNuevo" disabled value="0" name="limiteCredito" type="number" class="form-control">
                         </div>
                      </div>
                   </div>
@@ -265,7 +299,7 @@
             </form>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-               <button type="button" class="btn btn-success" >Agregar Cliente</button>
+               <button class="btn btn-success" onclick="AgregarCliente()" type="button" >Agregar Cliente</button>
             </div>
          </div>
       </div>
