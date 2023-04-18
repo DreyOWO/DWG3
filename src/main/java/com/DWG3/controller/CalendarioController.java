@@ -4,21 +4,27 @@
  */
 package com.DWG3.controller;
 
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  *
- * @author HP PROBOOK
+ * @author musst
  */
 @Controller
 public class CalendarioController {
+
+    @GetMapping("/calendario")
+    public String calendario() {
+        return "calendario";
+    }
     
     @RequestMapping("/calendario")
     public String page(Model model) {
         model.addAttribute("attribute", "value");
-        return "Calendar";
-    }
+        return "Calendario";
+    } 
     
 }
