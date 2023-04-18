@@ -16,6 +16,7 @@ try{
 
     var table;
     $(document).ready(function(){
+        var table
         DatatableServicios()
     });
     

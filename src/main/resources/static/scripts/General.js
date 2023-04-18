@@ -31,6 +31,12 @@ try{
 
     }
     
+    function WaitingDialog(mensaje) {
+        return Swal.fire({
+            title: mensaje, didOpen: () => { Swal.showLoading() }, allowOutsideClick: false,
+            allowEscapeKey: false });
+    }
+    
     function goCalendar(){
         window.location.assign("/calendar");
     }
